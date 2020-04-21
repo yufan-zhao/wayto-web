@@ -4,6 +4,7 @@
  * 
  * Copyright (C) 2020-present O&M Cloud Inc. All rights reserved.
  */
+import { RouteConfig } from "vue-router";
 
 // 布局组件
 const admin = (resolve: any) => (<any>require).ensure([], () => resolve(require("views/admin")), "admin");
@@ -13,7 +14,7 @@ import patrol from "./modules/patrol";
 
 function resolveRoutes(menus)
 {
-    let result =
+    let result: Array<RouteConfig> =
     [
         {
             path: "/",
@@ -35,7 +36,7 @@ function resolveRoutes(menus)
     return result;
 }
 
-const menus =
+const menus: Array<RouteConfig> =
 [
     {
         name: "system",
@@ -69,7 +70,7 @@ const menus =
     }
 ];
 
-const routes = resolveRoutes(menus);
+const routes: Array<RouteConfig> = resolveRoutes(menus);
 
 export
 {

@@ -223,6 +223,9 @@ export default class Workbench extends WorkbenchBase
         
         // 设置路由程序
         context.router = router;
+
+        // 设置菜单
+        context.menus = menus;
     }
     
     /**

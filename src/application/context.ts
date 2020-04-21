@@ -4,8 +4,7 @@
  * 
  * Copyright (C) 2020-present O&M Cloud Inc. All rights reserved. 
  */
-
-import Router from "vue-router";
+import Router, { RouteConfig } from "vue-router";
 import { Store } from "vuex";
 import { IWorkbench, ApplicationContextBase, InvalidOperationException } from "uxmid-core";
 
@@ -20,6 +19,7 @@ export default class ApplicationContext extends ApplicationContextBase
 {
     private _router: Router;
     private _store: Store<any>;
+    private _menus: Array<RouteConfig>;
 
     /**
      * 获取或设置当前应用的主路由对象。
@@ -39,6 +39,21 @@ export default class ApplicationContext extends ApplicationContextBase
         }
 
         this._router = value;
+    }
+
+    public get menus(): Array<RouteConfig>
+    {
+        return this._menus;
+    }
+
+    public set menus(value: Array<RouteConfig>)
+    {
+        if(!value)
+        {
+            throw new InvalidOperationException();
+        }
+        
+        this._menus = value;
     }
     
     /**
