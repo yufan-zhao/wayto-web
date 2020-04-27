@@ -1,6 +1,7 @@
 /*!
  * Authors:
  *      yyhugh
+ *      yufan
  * 
  * Copyright (C) 2020-present O&M Cloud Inc. All rights reserved.
  */
@@ -11,6 +12,7 @@ const admin = (resolve: any) => (<any>require).ensure([], () => resolve(require(
 
 import system from "./modules/system";
 import patrol from "./modules/patrol";
+import table from "./modules/table";
 
 function resolveRoutes(menus)
 {
@@ -41,6 +43,7 @@ const menus: Array<RouteConfig> =
     {
         name: "system",
         path: "/system",
+        redirect: "/system/system-main",
         component: admin,
         meta:
         {
@@ -56,6 +59,7 @@ const menus: Array<RouteConfig> =
     {
         name: "patrol",
         path: "/patrol",
+        redirect: "/patrol/patrol-plan",
         component: admin,
         meta:
         {
@@ -66,6 +70,22 @@ const menus: Array<RouteConfig> =
         children:
         [
             ...patrol
+        ]
+    },
+    {
+        name: "table",
+        path: "/table",
+        redirect: "/table/switch-table",
+        component: admin,
+        meta:
+        {
+            title: "表格",
+            label: "表格",
+            icon: "iconfont iconicon_xitongguanli"
+        },
+        children:
+        [
+            ...table
         ]
     }
 ];

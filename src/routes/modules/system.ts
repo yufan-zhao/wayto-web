@@ -10,8 +10,13 @@ const system = (resolve: any) => (<any>require).ensure([], () => resolve(require
 export default
 [
     {
-        name: "system",
-        path: "/system",
-        component: system
+        name: "system-main",
+        path: "system-main",
+        component: system,
+        meta:
+        {
+            title: "系统管理",
+            label: "系统管理"
+        }
     }
 ];

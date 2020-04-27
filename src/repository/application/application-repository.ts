@@ -11,6 +11,12 @@ export default class ApplicationRepository extends BaseRepository
      */
     private static readonly menu = Symbol("application-menu");
     /**
+     * 标签页列表
+     * @readonly
+     * @member
+     */
+    private static readonly tabs = Symbol("application-tabs");
+    /**
      * 缓存对象。
      * @readonly
      * @member
@@ -35,5 +41,15 @@ export default class ApplicationRepository extends BaseRepository
     public set applicationMenu(value)
     {
         ApplicationRepository.cache.set(ApplicationRepository.menu, value);
+    }
+
+    public get applicationTabs()
+    {
+        return ApplicationRepository.cache.get(ApplicationRepository.tabs);
+    }
+
+    public set applicationTabs(value)
+    {
+        ApplicationRepository.cache.set(ApplicationRepository.tabs, value);
     }
 }

@@ -5,13 +5,18 @@
  * Copyright (C) 2020-present O&M Cloud Inc. All rights reserved.
  */
 
-const patrol = (resolve: any) => (<any>require).ensure([], () => resolve(require("views/patrol/patrol")), "patrol");
+const plan = (resolve: any) => (<any>require).ensure([], () => resolve(require("views/patrol/plan/plan")), "patrol");
 
 export default
 [
     {
-        name: "patrol",
-        path: "/patrol",
-        component: patrol
+        name: "patrol-plan",
+        path: "patrol-plan",
+        component: plan,
+        meta:
+        {
+            title: "巡查计划",
+            label: "巡查计划"
+        }
     }
 ];

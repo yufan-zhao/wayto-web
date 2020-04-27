@@ -218,6 +218,7 @@ export default class Workbench extends WorkbenchBase
         // TODO 权限全局守卫
         router.beforeResolve(async (to, from, next) =>
         {
+            context.currentRoute = to;
             next();
         });
         

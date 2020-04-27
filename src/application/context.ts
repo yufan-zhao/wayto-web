@@ -4,7 +4,7 @@
  * 
  * Copyright (C) 2020-present O&M Cloud Inc. All rights reserved. 
  */
-import Router, { RouteConfig } from "vue-router";
+import Router, { RouteConfig, Route } from "vue-router";
 import { Store } from "vuex";
 import { IWorkbench, ApplicationContextBase, InvalidOperationException } from "uxmid-core";
 
@@ -20,6 +20,8 @@ export default class ApplicationContext extends ApplicationContextBase
     private _router: Router;
     private _store: Store<any>;
     private _menus: Array<RouteConfig>;
+    private _currentRoute: Route;
+    private _dynamicTabs: Array<any>;
 
     /**
      * 获取或设置当前应用的主路由对象。
@@ -54,6 +56,26 @@ export default class ApplicationContext extends ApplicationContextBase
         }
         
         this._menus = value;
+    }
+
+    public get currentRoute(): Route
+    {
+        return this._currentRoute;
+    }
+
+    public set currentRoute(val: Route)
+    {
+        this._currentRoute = val;
+    }
+
+    public get dynamicTabs(): Array<Route>
+    {
+        return this._dynamicTabs;
+    }
+
+    public set dynamicTabs(val: Array<Route>)
+    {
+        this._dynamicTabs = val;
     }
     
     /**

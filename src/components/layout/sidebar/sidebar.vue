@@ -28,9 +28,9 @@
 
 <script lang="ts">
 import { component, Component, watch } from "uxmid-web";
-import { ApplicationRepository } from "../../../repository";
+import { Application } from "uxmid-core";
+import { ApplicationContext } from "src/application";
 import { IMenu } from "models";
-import { repository } from "../../../common/decorator";
 
 /**
  * 表示一个公共侧边栏组件。
@@ -40,8 +40,16 @@ import { repository } from "../../../common/decorator";
 @component
 export default class Sidebar extends Component
 {
-    @repository("ApplicationRepository")
-    private applicationRepository: ApplicationRepository;
+    /**
+     * 获取当前应用的上下文实例。
+     * @protected
+     * @property
+     * @returns ApplicationContext
+     */
+    protected get applicationContext(): ApplicationContext
+    {
+        return Application.context as ApplicationContext;
+    }
 
     /**
      * 获取和设置展开当前菜单。
@@ -106,6 +114,7 @@ export default class Sidebar extends Component
      */
     protected onMenuSelect(name: string): void
     {
+        this.resolveTabs(name);
         name !== this.$route.name && this.$router.push({ name });
     }
 
@@ -124,11 +133,20 @@ export default class Sidebar extends Component
      */
     private created(): void
     {
-        const menus = this.applicationRepository.applicationMenu;
+        // 从上下文中取出菜单
+        const menus = this.applicationContext.menus;
         this.menus = this.resolveMenu(menus);
+
+        // 获取当前路由顶级菜单name
+        this.resolveTabs(this.applicationContext.currentRoute.matched[0].name);
     }
 
-    private resolveMenu(menu)
+    /**
+     * 菜单处理方法
+     * @private
+     * @returns {Array<IMenu>}
+     */
+    private resolveMenu(menu): Array<IMenu>
     {
         let result: Array<IMenu> = [];
         menu.forEach(item =>
@@ -140,6 +158,27 @@ export default class Sidebar extends Component
             });
         });
         return result;
+    }
+
+    /**
+     * 动态标签页处理方法
+     * @private
+     * @returns {void}
+     */
+    private resolveTabs(name: string): void
+    {
+        let dynamicTabs = [];
+        let parentName = name;
+        // 从上下文中取出菜单
+        const menus = this.applicationContext.menus;
+        menus.forEach(item =>
+        {
+            if (item.name === parentName)
+            {
+                dynamicTabs.push(...item.children);
+            }
+        });
+        this.applicationContext.store.dispatch("application/setTabs", dynamicTabs);
     }
 }
 </script>

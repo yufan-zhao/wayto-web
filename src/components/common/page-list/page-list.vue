@@ -99,6 +99,7 @@ export default class PageList extends View
         }
         else
         {
+            this.$router.push({ name: name });
             this.$emit("onTabClick", name);
         }
 
