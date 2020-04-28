@@ -47,7 +47,6 @@ const menus: Array<RouteConfig> =
         component: admin,
         meta:
         {
-            title: "系统管理",
             label: "系统管理",
             icon: "iconfont iconicon_xitongguanli"
         },
@@ -63,7 +62,6 @@ const menus: Array<RouteConfig> =
         component: admin,
         meta:
         {
-            title: "巡查管理",
             label: "巡查管理",
             icon: "iconfont iconicon_xunchaguanli"
         },
@@ -79,7 +77,6 @@ const menus: Array<RouteConfig> =
         component: admin,
         meta:
         {
-            title: "表格",
             label: "表格",
             icon: "iconfont iconicon_xitongguanli"
         },

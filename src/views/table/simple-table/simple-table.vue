@@ -1,5 +1,5 @@
 <template>
-    <div class="sub-page simple-table">
+    <div class="simple-table">
         这里是简单表格！
     </div>
 </template>

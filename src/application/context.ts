@@ -21,7 +21,6 @@ export default class ApplicationContext extends ApplicationContextBase
     private _store: Store<any>;
     private _menus: Array<RouteConfig>;
     private _currentRoute: Route;
-    private _dynamicTabs: Array<any>;
 
     /**
      * 获取或设置当前应用的主路由对象。
@@ -66,16 +65,6 @@ export default class ApplicationContext extends ApplicationContextBase
     public set currentRoute(val: Route)
     {
         this._currentRoute = val;
-    }
-
-    public get dynamicTabs(): Array<Route>
-    {
-        return this._dynamicTabs;
-    }
-
-    public set dynamicTabs(val: Array<Route>)
-    {
-        this._dynamicTabs = val;
     }
     
     /**

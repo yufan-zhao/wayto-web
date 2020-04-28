@@ -9,7 +9,7 @@
                 <!--选项卡列表 END-->
 
                 <!-- 选项卡内容 BEGIN -->
-                <router-view></router-view>
+                <router-view class="content-layout"></router-view>
                 <!-- 选项卡内容 END -->
             </u-page-list>
         </l-generic>
@@ -24,6 +24,12 @@ import { Route } from "vue-router";
 export default class AdminTemplate extends CommonView
 {
 
+    /**
+     * 动态菜单容器
+     * @protected
+     * @property
+     * @returns {Array<Route>}
+     */
     protected tabs: Array<Route> = [];
 
     /**
@@ -37,18 +43,22 @@ export default class AdminTemplate extends CommonView
         return this.applicationContext.currentRoute;
     }
 
+    /**
+     * 动态菜单存储监听
+     * @watch
+     * @protected
+     */
     @watch("applicationContext.store.state.application.dynamicTabs", {immediate: true})
-    protected tabsWatch(val)
+    protected tabsWatch(val: Array<Route>): void
     {
         this.tabs = val;
     }
-
-    private created(): void
-    {
-        // console.log("admin.vue", this.applicationContext.store.state.application.dynamicTabs);
-    }
 }
 </script>
-<style lang="less">
-
+<style lang="less" scoped>
+.content-layout
+{
+    height: 100%;
+    background-color: #fff;
+}
 </style>

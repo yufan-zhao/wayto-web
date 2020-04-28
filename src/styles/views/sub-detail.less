@@ -1,0 +1,30 @@
+.sub-detail
+{
+    &-title
+    {
+        position: relative;
+        padding-left: 10px;
+        margin-top: 42px;
+        margin-bottom: 27px;
+        font-size: 16px;
+        color: #182334;
+        font-weight: bold;
+    }
+    &-title::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 3px;
+        height: 14px;
+        background: #2D52F2;
+        margin-right: 8px;
+    }
+    .sub-content
+    {
+        margin-left: 10px;
+    }
+}
