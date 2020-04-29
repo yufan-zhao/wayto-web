@@ -66,7 +66,7 @@ import CommonView from "src/views/common-view";
 @component
 export default class Info extends CommonView
 {
-
+    
 }
 </script>
 

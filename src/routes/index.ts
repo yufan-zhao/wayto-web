@@ -9,6 +9,7 @@ import { RouteConfig } from "vue-router";
 
 // 布局组件
 const admin = (resolve: any) => (<any>require).ensure([], () => resolve(require("views/admin")), "admin");
+const login = (resolve: any) => (<any>require).ensure([], () => resolve(require("views/login/login")), "login");
 
 import system from "./modules/system";
 import patrol from "./modules/patrol";
@@ -25,7 +26,7 @@ function resolveRoutes(menus)
         {
             name: "login",
             path: "/login",
-            component: (resolve: any) => (<any>require).ensure([], () => resolve(require("views/login")), "login")
+            component: login
         },
         {
             name: "home",
