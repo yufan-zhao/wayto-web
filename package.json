@@ -1,7 +1,7 @@
 {
-  "name": "{{name}}",
-  "description": "{{description}}",
-  "author": "{{author}}",
+  "name": "wayto",
+  "description": "wayto sass demo",
+  "author": "Yufan",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,10 +23,10 @@
     "flagwind-core": "^1.1.1",
     "flagwind-echarts": "^1.0.0",
     "flagwind-web": "^1.0.9",
-    "iview": "^3.4.1",
     "md5": "^2.2.1",
     "uxmid-core": "^1.0.1",
     "uxmid-web": "^1.0.0",
+    "view-design": "^4.2.0",
     "viewerjs": "^1.5.0",
     "vue": "^2.6.10",
     "vue-property-decorator": "^8.1.0",

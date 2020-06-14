@@ -24,7 +24,7 @@ import MainLayout from "layouts/main.vue";
 import GenericLayout from "layouts/generic.vue";
 
 // 导入第三方组件
-import iView from "iview";
+import ViewUI from "view-design";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -163,35 +163,35 @@ export default class Workbench extends WorkbenchBase
      */
     private initializeCustomComponent(context: ApplicationContext): void
     {
-        Vue.use(iView);
+        Vue.use(ViewUI);
         dayjs.locale("zh-cn");
         dayjs.extend(relativeTime);
 
         // 初始化高德地图配置
-        // AMap.init
-        // ({
-        //     key: globalConfig.aMapKey,
-        //     version: "1.4.14",
-        //     uiVersion: "1.0",
-        //     plugins:
-        //     [
-        //         "Autocomplete",
-        //         "PlaceSearch",
-        //         "Scale",
-        //         "OverView",
-        //         "ToolBar",
-        //         "MapType",
-        //         "CircleEditor",
-        //         "Geocoder",
-        //         "PositionPicker",
-        //         "AMap.MouseTool",
-        //         "AMap.PolyEditor",
-        //         "AMap.MarkerClusterer"
-        //     ]
-        // });
+        AMap.init
+        ({
+            key: globalConfig.aMapKey,
+            version: "1.4.14",
+            uiVersion: "1.0",
+            plugins:
+            [
+                "Autocomplete",
+                "PlaceSearch",
+                "Scale",
+                "OverView",
+                "ToolBar",
+                "MapType",
+                "CircleEditor",
+                "Geocoder",
+                "PositionPicker",
+                "AMap.MouseTool",
+                "AMap.PolyEditor",
+                "AMap.MarkerClusterer"
+            ]
+        });
 
         // 注册高德地图组件
-        // Vue.use(AMap);
+        Vue.use(AMap);
     }
     
     /**
