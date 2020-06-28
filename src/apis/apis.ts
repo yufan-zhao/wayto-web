@@ -18,7 +18,7 @@ import { ArgumentException } from "uxmid-core";
  * @param {string} method 请求类型
  * @returns {any}
  */
-const send = (url: string, options?: IHttpRequest, method: string = "post"): IHttpResponse =>
+const send = async (url: string, options?: IHttpRequest, method: string = "post"): Promise<IHttpResponse> =>
 {
     // 如果未传入url以及参数抛出异常
     if (!url)
@@ -53,4 +53,16 @@ export default class Apis
 
     // 系统管理
     public findOrgTree =             (options?: IHttpRequest) => send(API.findOrgTree, options, "put");                      // 单位树形结构查询，支持按名称模糊匹配
+
+    // 组织管理
+    public orgQuery =              (options?: IHttpRequest) => send(API.orgQuery, options, "get");                              // 分页查询巡查列表
+    public orgInsert =              (options?: IHttpRequest) => send(API.orgInsert, options, "post");                           // 分页查询巡查列表
+    public orgUpdate =              (options?: IHttpRequest) => send(API.orgUpdate, options, "put");                            // 分页查询巡查列表
+    public orgDelete =              (options?: IHttpRequest) => send(API.orgDelete, options, "delete");                         // 分页查询巡查列表
+
+    // 角色管理
+    public roleQuery =              (options?: IHttpRequest) => send(API.roleQuery, options, "get");                              // 分页查询巡查列表
+    public roleInsert =              (options?: IHttpRequest) => send(API.roleInsert, options, "post");                           // 分页查询巡查列表
+    public roleUpdate =              (options?: IHttpRequest) => send(API.roleUpdate, options, "put");                            // 分页查询巡查列表
+    public roleDelete =              (options?: IHttpRequest) => send(API.roleDelete, options, "delete");                         // 分页查询巡查列表
 }

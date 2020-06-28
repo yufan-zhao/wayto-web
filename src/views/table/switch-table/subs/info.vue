@@ -19,8 +19,6 @@
                             2020-4-28
                         </i-form-item>
                     </i-col>
-                </i-row>
-                <i-row type="flex" justify="start" class="u-row">
                     <i-col class-name="u-col" span="8">
                         <i-form-item class="u-form-item" :label-width="76" label="微信号">
                             wx1111
@@ -36,8 +34,6 @@
                             2020-4-28
                         </i-form-item>
                     </i-col>
-                </i-row>
-                <i-row type="flex" justify="start" class="u-row">
                     <i-col class-name="u-col" span="8">
                         <i-form-item class="u-form-item" :label-width="76" label="微信号">
                             wx1111
@@ -55,6 +51,39 @@
                     </i-col>
                 </i-row>
             </i-form>
+        </div>
+
+        <h3 class="sub-detail-title">基础信息</h3>
+        <div class="sub-content">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </div>
+        <h3 class="sub-detail-title">基础信息</h3>
+        <div class="sub-content">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </div>
+        <h3 class="sub-detail-title">基础信息</h3>
+        <div class="sub-content">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </div>
+        <h3 class="sub-detail-title">基础信息</h3>
+        <div class="sub-content">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
         </div>
     </div>
 </template>

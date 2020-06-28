@@ -5,21 +5,12 @@
 </template>
 <script lang="ts">
 import { View, component } from "uxmid-web";
+import CommonView from "src/views/common-view";
 import { service } from "common/decorator";
-import { SystemService } from "src/services";
 
 @component
-export default class System extends View
+export default class SystemLayout extends CommonView
 {
-    /**
-     * 请求服务。
-     * @member
-     * @protected
-     * @returns {SystemService}
-     */
-    @service("SystemService")
-    private service: SystemService;
-
     protected async created()
     {
         // 示例：若在未登录状态下发送请求则直接打回登录页
